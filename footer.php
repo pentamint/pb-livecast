@@ -14,16 +14,16 @@
 defined('ABSPATH') || exit;
 ?>
 
-			<footer id="colophon" class="site-footer" role="contentinfo">
-				<div class="container">
+			<footer id="colophon" class="site-footer container-fluid" role="contentinfo">
+				<div class="footer-wrapper">
 					<div class="row">
-						<div class="col-md-9">
+						<div class="col-md-8">
 							<div class="site-info">
 								All Rights Reserved © <?php echo date("Y"); ?> <span class="sep"> | </span><a href="http://www.spc.co.kr"><span class="enfont">SPC Co., Ltd.</span></a>
 							</div><!-- .site-info -->
 
-						</div><!-- .col-md-9 -->
-						<div class="col-md-3">
+						</div><!-- .col-md-8 -->
+						<div class="col-md-4">
 							<div class="pm-system-info">
 								System Version
 								<?php
@@ -32,9 +32,9 @@ defined('ABSPATH') || exit;
 									echo $my_theme->get('Version');
 								?>
 							</div>
-						</div><!-- .col-md-3 -->
+						</div><!-- .col-md-4 -->
 					</div><!-- .row -->
-				</div><!-- .container -->
+				</div><!-- .footer-wrapper -->
 			</footer><!-- #colophon -->
 
 		</div><!-- #content -->

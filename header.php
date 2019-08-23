@@ -35,7 +35,7 @@ defined('ABSPATH') || exit;
 		<div id="pm-wrapper" class="wrapper">
 			<div id="vertical-sidebar-placeholder">
 				<!-- ========== Left Side Header Start ========== -->
-				<header id="masthead" class="site-header pm-side-header collapse navbar-collapse show">
+				<header id="masthead" class="site-header pm-side-header collapse navbar-collapse">
 					<div class="masthead-container">
 						<!-- LOGO -->
 						<div class="site-branding">
@@ -57,15 +57,10 @@ defined('ABSPATH') || exit;
 							<?php endif; ?>
 						</div><!-- LOGO -->
 						<!-- Site Navigation -->
+						<div class="site-title">Live Cast System</div>
+						<div class="nav-title">NAVIGATION</div>
 						<nav class="navbar navbar-default navbar-primary" role="navigation">
 							<div class="nav-wrapper">
-								<!-- Brand and toggle get grouped for better mobile display -->
-								<button type="button" class="navbar-toggle hamburger hamburger--spring" data-toggle="collapse" data-target="#masthead">
-									<span class="sr-only">Toggle navigation</span>
-									<span class="hamburger-box">
-										<span class="hamburger-inner"></span>
-									</span>
-								</button>
 								<?php
 								wp_nav_menu(
 									array(
@@ -88,4 +83,48 @@ defined('ABSPATH') || exit;
 
 			</div><!-- #vertical-sidebar-placeholder -->
 
-			<div id="content" class="site-content">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div id="secondary-header" class="collapse navbar-collapse">
+				<div class="secondary-header-wrapper">
+					<button type="button" class="navbar-toggle hamburger hamburger--spring" data-toggle="collapse" data-target="#masthead, #content, #secondary-header">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="hamburger-box">
+							<span class="hamburger-inner"></span>
+						</span>
+					</button>
+
+					<!-- Secondary header search form -->
+					<?php get_search_form(); ?>
+
+					<!-- Secondary header widget area -->
+					<div class="secondary-header-widget-wrapper">
+						<!-- Secondary header search button -->
+						<button type="button" class="search-toggle" data-target="#searchform">
+							<i class="fas fa-search"></i>
+						</button>
+
+						<?php if (is_user_logged_in()) { ?>
+						<div class="account-setting">
+							<a href="/spc-livecast/account/" class="account-setting"><i class="fas fa-cog"></i></a>
+						</div>
+						<div class="log-out">
+							<a href="/spc-livecast/logout/" class="log-out"><i class="fas fa-sign-out-alt"></i></a>
+						</div>
+						<?php } ?>
+
+						<div class="welcome-block">
+							<span class="welcome-msg">
+								<?php global $current_user;
+								wp_get_current_user(); ?>
+								<?php if (is_user_logged_in()) {
+									echo $current_user->display_name . '님,<br>' . '반갑습니다!';
+								} else { ?>
+								<a href="/spc-livecast/login/" class="log-in">로그인</a>
+								<?php } ?>
+							</span>
+						</div>
+					</div><!-- .secondary-header-widget-wrapper -->
+				</div><!-- .secondary-header-wrapper -->
+			</div><!-- #secondary-header -->
+
+			<div id="content" class="site-content collapse navbar-collapse">

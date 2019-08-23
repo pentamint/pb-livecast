@@ -51,13 +51,13 @@
       }
     };
     // Dynamic sidebar header position based on window resize
-    $(window).on('load resize', function() {
+    $(window).on('load resize', function () {
       if (window.innerWidth <= 600 && window.pageYOffset > 46) {
-        $('#masthead').css('margin-top', 0); 
-      } else if (window.innerWidth <= 782 ) {
-        $('#masthead').css('margin-top', 46);
+        $('body.admin-bar #masthead').css('margin-top', 0);
+      } else if (window.innerWidth <= 782) {
+        $('body.admin-bar #masthead').css('margin-top', 46);
       } else {
-        $('#masthead').css('margin-top', 32);
+        $('body.admin-bar #masthead').css('margin-top', 32);
       }
     });
   });
@@ -67,23 +67,39 @@
   // --- Default Init --- //
   // Init Bootstrap toggle
   $('.navbar-toggle').click(function () {
+    $('body').toggleClass('header-expanded');
     $('.navbar-toggle').toggleClass('is-active');
+  });
+
+  // Init Custom toggle
+  $('.search-toggle').click(function () {
+    $('#searchform').toggleClass('is-active');
+  });
+  
+  // --- Side Header Layout --- //
+  // Main menu nav
+  $(window).on('load resize', function () {
+    if (window.innerWidth >= 768 && !$('body').hasClass('header-expanded')) {
+      $('#masthead').addClass('show');
+    } else if (window.innerWidth < 768 && !$('body').hasClass('header-expanded')) {
+      $('#masthead').removeClass('show');
+    }
   });
 
   // --- Sidebar Layout --- //
   $(document).ready(function () {
     // If sidebar exist => wrap content area with container class for all page templates
     if ($('body').hasClass('has-sidebar')) {
-      $('.content-area').wrapAll("<div class='container' />");
+      $('.content-area').wrapAll("<div class='container-fluid' />");
     };
     // If sidebar !exist => add container class to header elements
     if (!$('body').hasClass('has-sidebar')) {
-      $('.page header.page-header').addClass('container');
-      $('.single header.page-header').addClass('container');
-      $('header.entry-header').addClass('container');
+      $('.page header.page-header').addClass('container-fluid');
+      $('.single header.page-header').addClass('container-fluid');
+      $('header.entry-header').addClass('container-fluid');
       // Wrap content area with container class for rendered pages => archive, search
-      $('.archive .content-area').wrapAll("<div class='container' />");
-      $('.search .content-area').wrapAll("<div class='container' />");
+      $('.archive .content-area').wrapAll("<div class='container-fluid' />");
+      $('.search .content-area').wrapAll("<div class='container-fluid' />");
     };
   });
 
@@ -102,8 +118,8 @@
     };
     // Wrap content area with container class for no sidebar Woocommerce layout
     if (!$('body').hasClass('has-sidebar')) {
-      $('.woocommerce:not(.archive) .content-area').wrapAll("<div class='container' />");
-      $('.woocommerce:not(.search) .content-area').wrapAll("<div class='container' />");
+      $('.woocommerce:not(.archive) .content-area').wrapAll("<div class='container-fluid' />");
+      $('.woocommerce:not(.search) .content-area').wrapAll("<div class='container-fluid' />");
     }
   });
 
@@ -120,14 +136,14 @@
     } else {
       // If sidebar !exist => add boxed & container classes to section
       $('body:not(.has-sidebar) .ugb-container').addClass('boxed');
-      $('.boxed .ugb-container__content-wrapper').addClass('container');
+      $('.boxed .ugb-container__content-wrapper').addClass('container-fluid');
       $('.boxed .ugb-container__content-wrapper').attr('style', 'margin-right: auto; margin-left: auto');
     }
   });
 
   // ----- Slimscroll Support ----- //
   $(document).ready(function () {
-    $('.masthead-container').slimScroll( {
+    $('.masthead-container').slimScroll({
       height: 'auto',
       position: 'right',
       size: '8px',
