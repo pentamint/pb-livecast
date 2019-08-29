@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
 
 $pentamint_wp_theme_includes = array(
 	'/setup.php',							// Theme setup and custom theme supports.
-	// '/post-types.php',                      // Setup post type & register custom post types
+	'/post-types.php',                      // Setup post type & register custom post types
 	'/menus.php',                           // Register custom menus.
 	'/widgets.php',                         // Register widget area.
 	'/enqueue.php',                         // Enqueue scripts and styles.

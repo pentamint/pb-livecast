@@ -11,7 +11,7 @@
 
 <section class="no-results not-found">
 	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'pentamint_wp_theme' ); ?></h1>
+		<h1 class="page-title"><?php esc_html_e( '아무것도 찾지 못했습니다..', 'pentamint_wp_theme' ); ?></h1>
 	</header><!-- .page-header -->
 
 	<div class="page-content">
@@ -21,7 +21,7 @@
 			printf(
 				'<p>' . wp_kses(
 					/* translators: 1: link to WP admin new post page. */
-					__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'pentamint_wp_theme' ),
+					__( '신규 내용을 등록하실 준비가 되셨으면 <a href="%1$s">이 링크를 클릭</a> 하셔서 등록해 주시기 바랍니다.', 'pentamint_wp_theme' ),
 					array(
 						'a' => array(
 							'href' => array(),
@@ -34,14 +34,14 @@
 		elseif ( is_search() ) :
 			?>
 
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'pentamint_wp_theme' ); ?></p>
+			<p><?php esc_html_e( '죄송합니다. 해당 키워드로 검색된 결과가 없습니다. 다른 키워드로 다시 검색해 주시기 바랍니다.', 'pentamint_wp_theme' ); ?></p>
 			<?php
 			get_search_form();
 
 		else :
 			?>
 
-			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'pentamint_wp_theme' ); ?></p>
+			<p><?php esc_html_e( '찾으시는 내용을 검색하지 못했습니다. 아래 검색창으로 키워드 검색을 해보시는건 어떨까요?', 'pentamint_wp_theme' ); ?></p>
 			<?php
 			get_search_form();
 

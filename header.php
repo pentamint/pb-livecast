@@ -58,7 +58,7 @@ defined('ABSPATH') || exit;
 						</div><!-- LOGO -->
 						<!-- Site Navigation -->
 						<div class="site-title">Live Cast System</div>
-						<div class="nav-title">NAVIGATION</div>
+						<div class="nav-title">매장위치</div>
 						<nav class="navbar navbar-default navbar-primary" role="navigation">
 							<div class="nav-wrapper">
 								<?php
@@ -78,6 +78,8 @@ defined('ABSPATH') || exit;
 								<div class="menu-overlay"></div>
 							</div><!-- .nav-wrapper -->
 						</nav><!-- Site Navigation -->
+						<div class="nav-title">시스템 메뉴</div>
+
 					</div><!-- .masthead-container -->
 				</header><!-- #masthead -->
 
@@ -86,7 +88,7 @@ defined('ABSPATH') || exit;
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div id="secondary-header" class="collapse navbar-collapse">
 				<div class="secondary-header-wrapper">
-					<button type="button" class="navbar-toggle hamburger hamburger--spring" data-toggle="collapse" data-target="#masthead, #content, #secondary-header">
+					<button type="button" class="navbar-toggle hamburger hamburger--spring" data-toggle="collapse" data-target="#masthead, #content, #secondary-header, footer#colophon">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="hamburger-box">
 							<span class="hamburger-inner"></span>
@@ -99,7 +101,7 @@ defined('ABSPATH') || exit;
 					<!-- Secondary header widget area -->
 					<div class="secondary-header-widget-wrapper">
 						<!-- Secondary header search button -->
-						<button type="button" class="search-toggle" data-target="#searchform">
+						<button type="button" class="search-toggle" data-target="#search_form">
 							<i class="fas fa-search"></i>
 						</button>
 

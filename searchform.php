@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) || exit;
 <!-- Store search terms in variable for result page use -->
 <?php $search_terms = htmlspecialchars( isset($_GET["s"]) ); ?>
 
-<form role="form" action="<?php bloginfo('url'); ?>/" id="searchform" method="get">
+<form role="form" action="<?php bloginfo('url'); ?>/" id="search_form" class="search-form" method="get">
     <label for="s" class="sr-only">검색하기</label>
     <div class="input-group">
         <input type="text" class="form-control" id="s" name="s" placeholder="검색어를 입력하세요"<?php if ( $search_terms !== '' ) { echo ' value="' . $search_terms . '"'; } ?> />

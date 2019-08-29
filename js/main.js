@@ -73,9 +73,9 @@
 
   // Init Custom toggle
   $('.search-toggle').click(function () {
-    $('#searchform').toggleClass('is-active');
+    $('#search_form').toggleClass('is-active');
   });
-  
+
   // --- Side Header Layout --- //
   // Main menu nav
   $(window).on('load resize', function () {
@@ -85,29 +85,33 @@
       $('#masthead').removeClass('show');
     }
   });
+  // Keep active nav opened
+  $(window).on('load', function () {
+    if ($('#main-menu > .menu-item').hasClass('active')) {
+      $('#main-menu > .menu-item').addClass('show');
+      $('.dropdown-menu').addClass('show');
+    }
+  });
+
+  // --- Content Layout --- //
+  $(document).ready(function () {
+
+  });
 
   // --- Sidebar Layout --- //
+  // Add container-fluid to h1 page header
   $(document).ready(function () {
-    // If sidebar exist => wrap content area with container class for all page templates
-    if ($('body').hasClass('has-sidebar')) {
-      $('.content-area').wrapAll("<div class='container-fluid' />");
-    };
-    // If sidebar !exist => add container class to header elements
-    if (!$('body').hasClass('has-sidebar')) {
-      $('.page header.page-header').addClass('container-fluid');
-      $('.single header.page-header').addClass('container-fluid');
+    var $body = $('body');
+    if ($body.hasClass('page') || $body.hasClass('single')) {
       $('header.entry-header').addClass('container-fluid');
-      // Wrap content area with container class for rendered pages => archive, search
-      $('.archive .content-area').wrapAll("<div class='container-fluid' />");
-      $('.search .content-area').wrapAll("<div class='container-fluid' />");
-    };
+    }
   });
 
   // --- Archive Post Layout --- //
   // Add Bootstrap 3 col layout to archive posts
   if ($('body').hasClass('archive')) {
     $('.site-main > article').wrapAll("<div class='row' />");
-    $('article').addClass('col-12 col-sm-6 col-md-4');
+    $('article').addClass('col-6 col-sm-4 col-md-3');
   };
 
   // --- Woocommerce Layout --- //
@@ -127,6 +131,8 @@
   // Add Bootstrap properties to col
   $('.wp-block-columns').addClass('row');
   $('.wp-block-column').addClass('col');
+  // Add extra wrapper to each column
+  $('.wp-block-column').contents().wrapAll("<div class='column-wrapper' />");
 
   // --- Stackable - Gutenberg Blocks --- //
   $(document).ready(function () {
@@ -141,7 +147,7 @@
     }
   });
 
-  // ----- Slimscroll Support ----- //
+  // --- Slimscroll Support --- //
   $(document).ready(function () {
     $('.masthead-container').slimScroll({
       height: 'auto',
