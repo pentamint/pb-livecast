@@ -92,10 +92,14 @@
       $('.dropdown-menu').addClass('show');
     }
   });
-
-  // --- Content Layout --- //
+  // Add padded wrapper to each column (widgetized theme specific)
   $(document).ready(function () {
-
+    var findChild = $('.ugb-container').find('.wp-block-column').length;
+    if (findChild === 0) {
+      $('.ugb-container__content-wrapper').wrapInner("<div class='column-wrapper' />");
+    } else {
+      $('.wp-block-column').wrapInner("<div class='column-wrapper' />");
+    }
   });
 
   // --- Sidebar Layout --- //
@@ -109,7 +113,7 @@
 
   // --- Archive Post Layout --- //
   // Add Bootstrap 3 col layout to archive posts
-  if ($('body').hasClass('archive')) {
+  if ($('body').is('.archive, .blog')) {
     $('.site-main > article').wrapAll("<div class='row' />");
     $('article').addClass('col-6 col-sm-4 col-md-3');
   };
@@ -131,8 +135,6 @@
   // Add Bootstrap properties to col
   $('.wp-block-columns').addClass('row');
   $('.wp-block-column').addClass('col');
-  // Add extra wrapper to each column
-  $('.wp-block-column').contents().wrapAll("<div class='column-wrapper' />");
 
   // --- Stackable - Gutenberg Blocks --- //
   $(document).ready(function () {

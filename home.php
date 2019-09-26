@@ -21,7 +21,7 @@ get_header();
 			<?php if (have_posts()) : ?>
 
 			<header class="page-header">
-				<h1 class='page-title'><?php single_cat_title( __( '매장 목록: ', 'textdomain') ); ?></h1>
+				<h1 class='page-title'><span>매장 목록: 전체보기</span></h1>
 				<?php
 					the_archive_description('<div class="archive-description">', '</div>');
 					?>

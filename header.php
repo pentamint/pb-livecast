@@ -57,7 +57,7 @@ defined('ABSPATH') || exit;
 							<?php endif; ?>
 						</div><!-- LOGO -->
 						<!-- Site Navigation -->
-						<div class="site-title">Live Cast System</div>
+						<div class="site-title">점포 스트릿뷰</div>
 						<div class="nav-title">매장위치</div>
 						<nav class="navbar navbar-default navbar-primary" role="navigation">
 							<div class="nav-wrapper">
@@ -79,6 +79,9 @@ defined('ABSPATH') || exit;
 							</div><!-- .nav-wrapper -->
 						</nav><!-- Site Navigation -->
 						<div class="nav-title">시스템 메뉴</div>
+						<ul id="main-menu-2" class="nav navbar-nav">
+							<li class="menu-item"><a href="/pb-livecast/dashboard/" class="nav-link">Dashboard</a></li>
+						</ul>
 
 					</div><!-- .masthead-container -->
 				</header><!-- #masthead -->
@@ -107,10 +110,10 @@ defined('ABSPATH') || exit;
 
 						<?php if (is_user_logged_in()) { ?>
 						<div class="account-setting">
-							<a href="/spc-livecast/account/" class="account-setting"><i class="fas fa-cog"></i></a>
+							<a href="/pb-livecast/account/" class="account-setting"><i class="fas fa-cog"></i></a>
 						</div>
 						<div class="log-out">
-							<a href="/spc-livecast/logout/" class="log-out"><i class="fas fa-sign-out-alt"></i></a>
+							<a href="/pb-livecast/logout/" class="log-out"><i class="fas fa-sign-out-alt"></i></a>
 						</div>
 						<?php } ?>
 
@@ -121,7 +124,7 @@ defined('ABSPATH') || exit;
 								<?php if (is_user_logged_in()) {
 									echo $current_user->display_name . '님,<br>' . '반갑습니다!';
 								} else { ?>
-								<a href="/spc-livecast/login/" class="log-in">로그인</a>
+								<a href="/pb-livecast/login/" class="log-in">로그인</a>
 								<?php } ?>
 							</span>
 						</div>

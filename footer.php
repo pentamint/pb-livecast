@@ -22,7 +22,7 @@ defined('ABSPATH') || exit;
 			<div class="row">
 				<div class="col-md-8">
 					<div class="site-info">
-						All Rights Reserved © <?php echo date("Y"); ?> <span class="sep"> | </span><a href="http://www.spc.co.kr"><span class="enfont">SPC Co., Ltd.</span></a>
+						All Rights Reserved © <?php echo date("Y"); ?> <span class="sep"> | </span><a href="https://www.pariscroissant.co.kr/"><span class="enfont">Paris Croissant Co., Ltd.</span></a>
 					</div><!-- .site-info -->
 
 				</div><!-- .col-md-8 -->

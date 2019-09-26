@@ -28,6 +28,10 @@ if ( ! function_exists( 'pentamint_wp_theme_scripts' ) ) {
 		// Bootstrap Support
 		wp_enqueue_script( 'popper.js', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', array(), null, true );
 		wp_enqueue_script( 'bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', array(), null, true );
+
+		// Video JS Support
+		wp_enqueue_style( 'videojs-css', 'https://vjs.zencdn.net/7.2.3/video-js.css', true );
+		wp_enqueue_script( 'videojs-js', 'https://vjs.zencdn.net/7.2.3/video.js', array(), null, false );
 	
 		// Theme Custom
 		wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap', false );

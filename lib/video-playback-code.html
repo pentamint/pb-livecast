@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<head>
+    <!-- JS code -->
+
+    <link href="https://vjs.zencdn.net/7.2.3/video-js.css" rel="stylesheet">
+</head>
+
+<style>
+    .video-js {
+        width: 100% !important;
+    }
+</style>
+
+<body>
+    <!-- HTML -->
+    <video id='pbcam0001' class="video-js vjs-default-skin" width="800" height="450" controls autoplay muted>
+        <source type="application/x-mpegURL" src="http://100.210.14.87/mpeg-dash/pbcast.m3u8">
+    </video>
+
+    <!-- JS code -->
+    <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.15.0/videojs-contrib-hls.min.js"></script>
+
+    <script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
+
+    <script>
+        var player = videojs('pbcam0001');
+        player.play();
+        
+        jQuery(window).on('load resize', function () {
+            var vidwidth = jQuery('.video-js').width();
+            var vidheight = vidwidth * 0.5625;
+            jQuery('.video-js').css('height', vidheight);
+        });
+    </script>
+</body>
+
+</html>
