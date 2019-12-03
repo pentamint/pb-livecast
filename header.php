@@ -22,8 +22,10 @@ defined('ABSPATH') || exit;
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<script src="https://kit.fontawesome.com/ec23c08cf8.js"></script>
+	<script type="text/javascript"> var templateUrl = '<?= get_bloginfo("url"); ?>'; </script>
 
 	<?php wp_head(); ?>
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -57,7 +59,7 @@ defined('ABSPATH') || exit;
 							<?php endif; ?>
 						</div><!-- LOGO -->
 						<!-- Site Navigation -->
-						<div class="site-title">점포 스트릿뷰</div>
+						<div class="site-title">PB 점포 실황</div>
 						<div class="nav-title">매장위치</div>
 						<nav class="navbar navbar-default navbar-primary" role="navigation">
 							<div class="nav-wrapper">

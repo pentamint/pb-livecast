@@ -6,16 +6,10 @@
     <link href="https://vjs.zencdn.net/7.2.3/video-js.css" rel="stylesheet">
 </head>
 
-<style>
-    .video-js {
-        width: 100% !important;
-    }
-</style>
-
 <body>
     <!-- HTML -->
-    <video id='pbcam0001' class="video-js vjs-default-skin" width="800" height="450" controls autoplay muted>
-        <source type="application/x-mpegURL" src="http://100.210.14.87/mpeg-dash/pbcast.m3u8">
+    <video id='pbkr_su001' class="pbcam video-js vjs-default-skin" width="800" height="450" controls autoplay muted>
+        <source type="application/x-mpegURL" src="http://100.210.14.87/mpeg-dash/krsu-yangjaebj.m3u8">
     </video>
 
     <!-- JS code -->
@@ -25,9 +19,9 @@
     <script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
 
     <script>
-        var player = videojs('pbcam0001');
+        var player = videojs('pbkr_su001');
         player.play();
-        
+
         jQuery(window).on('load resize', function () {
             var vidwidth = jQuery('.video-js').width();
             var vidheight = vidwidth * 0.5625;
@@ -35,5 +29,16 @@
         });
     </script>
 </body>
+
+<style>
+    .video-js {
+        width: 100% !important;
+        max-width: 1024px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 15px;
+        margin-bottom: 30px
+    }
+</style>
 
 </html>

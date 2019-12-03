@@ -102,3 +102,11 @@ function pentamint_wp_theme_content_width()
 	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 	$GLOBALS['content_width'] = apply_filters('pentamint_wp_theme_content_width', 640);
 }
+
+/* Set CPT Archive Page as Static Page */
+add_action('pre_get_posts','pm_homepage_cpt_filter');
+function pm_homepage_cpt_filter($query) {
+	if ( !is_admin() && $query->is_main_query() && is_home() ) {
+		$query->set('post_type', array('post') );
+	}
+}

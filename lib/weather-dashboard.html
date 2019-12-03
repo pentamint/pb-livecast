@@ -1,0 +1,400 @@
+<div class="container-fluid">
+    <div class="wrapper row">
+        <div class="col-md-4-br">
+            <h2 class="widget_title ribbon ribbon-primary">날씨기온</h2>
+            <div class="ribbon-time">
+                <p id="r1-text1" class="p_text"></p>
+            </div>
+            <div class="iframe-wrapper panel1">
+                <iframe class="reload1"
+                    src="http://www.weather.go.kr//home/index.tab.now-ten.jsp?gubun=1&amp;myPointCode=&amp;unit=K"
+                    name="iframe_weather_panel1" id="iframe_weather_panel1" style="width: 100%; height:520px;"
+                    title="정시관측"></iframe>
+            </div>
+        </div>
+        <div class="col-md-4-br">
+            <h2 class="widget_title ribbon ribbon-primary">강수</h2>
+            <div class="ribbon-time">
+                <p id="r1-text2" class="p_text"></p>
+            </div>
+            <div class="iframe-wrapper panel2">
+                <iframe class="reload2"
+                    src="http://www.weather.go.kr//home/index.tab.now-ten.jsp?gubun=2&amp;myPointCode=&amp;unit=K"
+                    name="iframe_weather_panel2" id="iframe_weather_panel2" style="width: 100%; height:520px;"
+                    title="정시관측"></iframe>
+            </div>
+        </div>
+        <div class="col-md-4-br">
+            <h2 class="widget_title ribbon ribbon-primary">풍향/풍속</h2>
+            <div class="ribbon-time">
+                <p id="r1-text3" class="p_text"></p>
+            </div>
+            <div class="iframe-wrapper panel3">
+                <iframe class="reload3"
+                    src="http://www.weather.go.kr//home/index.tab.now-ten.jsp?gubun=3&amp;myPointCode=&amp;unit=K"
+                    name="iframe_weather_panel3" id="iframe_weather_panel3" style="width: 100%; height:520px;"
+                    title="정시관측"></iframe>
+            </div>
+        </div>
+        <div class="col-md-4-br">
+            <h2 class="widget_title ribbon ribbon-primary r2">강수예측</h2>
+            <div class="ribbon-time">
+                <p id="r2-text1" class="p_text"></p>
+            </div>
+            <figure class="image-wrapper panel4">
+                <img id="perc-forecast" src="">
+            </figure>
+        </div>
+        <div class="col-md-4-br">
+            <h2 class="widget_title ribbon ribbon-primary r2">종합영상</h2>
+            <div class="ribbon-time">
+                <p id="r2-text2" class="p_text"></p>
+            </div>
+            <figure class="image-wrapper panel5">
+                <img id="comb-vid" src="">
+            </figure>
+        </div>
+        <div class="col-md-4-br">
+            <h2 class="widget_title ribbon ribbon-primary r2">황사/부유분진</h2>
+            <div class="ribbon-time">
+                <p id="r2-text3" class="p_text"></p>
+            </div>
+            <figure class="image-wrapper panel6">
+                <img id="sat-img" src="">
+            </figure>
+        </div>
+    </div><!-- .row -->
+</div>
+<style>
+    html {
+        margin-top: 0 !important;
+        height: 100%;
+    }
+
+    body {
+        margin-top: 20px;
+        height: 100%;
+        background-color: #fafbfe;
+        -ms-overflow-style: scrollbar;
+    }
+
+    .iframe-wrapper {
+        height: 494px;
+        overflow: hidden;
+    }
+
+    #iframe_weather_panel1,
+    #iframe_weather_panel2,
+    #iframe_weather_panel3 {
+        margin-top: -24px;
+        border: 0;
+    }
+
+    /* Title Ribbon */
+    h2.widget_title.ribbon {
+        padding: 7px 12px;
+        margin-bottom: 15px;
+        position: absolute;
+        left: -10px;
+        top: 10px;
+        color: #fff !important;
+        font-size: 13px;
+        font-weight: 600;
+        background: #727cf5;
+        border-radius: 0 3px 3px 0;
+        -webkit-box-shadow: 2px 5px 10px rgba(49, 58, 70, .15);
+        box-shadow: 2px 5px 10px rgba(49, 58, 70, .15);
+        min-width: 105px;
+        text-align: center;
+    }
+
+    h2.widget_title.ribbon:before {
+        content: " ";
+        border-style: solid;
+        border-width: 10px;
+        display: block;
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        margin-bottom: -10px;
+        z-index: -1;
+        border-color: #5a66f3 transparent transparent;
+    }
+
+    .panel4 {
+        max-width: 471px;
+        margin-top: -19px;
+    }
+
+    .panel5 img {
+        width: 508px;
+        max-width: 550px;
+        margin-top: -21px;
+    }
+
+    .panel6 {
+        max-width: 471px;
+        margin-top: -26px;
+        padding-top: 15px;
+        overflow: hidden;
+    }
+
+    .col-md-4-br #sat-img {
+        height: 100%;
+        height: 482px; /* IE fallback */
+        max-height: 482px;
+    }
+
+    /* Non responsive settings */
+    .wrapper {
+        padding: 25px 100px;
+        width: 1813px;
+        white-space: nowrap;
+        font-size: 0;
+    }
+
+    .col-md-4-br {
+        display: inline-block;
+        position: relative;
+        width: 471px;
+        margin-right: 100px;
+    }
+
+    .col-md-4-br:nth-child(3n) {
+        margin-right: 0;
+    }
+
+    .col-md-4-br:nth-child(n+4) {
+        margin-top: 55px;
+    }
+
+    .col-md-4-br .ribbon-time {
+        position: absolute;
+        right: 0;
+        width: 100%;
+        margin-top: -25px;
+        background-color: #333a4a;
+        color: #0acf97;
+        text-align: center;
+        font-size: 11px;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .col-md-4-br .ribbon-time .p_text {
+        margin-bottom: 0;
+        padding: 5px 10px;
+    }
+</style>
+<script>
+    // [Init] Time data
+    // Convert client time to korea time
+    var cdate = new Date(); // client current time
+    var offset = cdate.getTimezoneOffset() * 60000; // client UTC offset in sec
+    var seoul = cdate.getTime() + offset + 32400000; // seoul UTC in sec
+
+    // Init arrays for each panels
+    var pf = [
+        ['lead', 1800000], // 30 min lead
+        ['interval', 10],
+    ];
+    var cv = [
+        ['lead', 900000], // 15 min lead
+        ['interval', 5],
+    ];
+    var si = [
+        ['lead', 34200000], // 9 hrs 30 min lead, UTC file time (32,400,000)
+        ['interval', 10],
+    ];
+    var si2 = [
+        ['lead', 1800000], // 30 min lead
+        ['interval', 10],
+    ];
+
+    // Init calc date function
+    function calcDate(val) {
+        var adjTime = seoul - val[0][1]; // apply time lead
+        var adjdTime = new Date(adjTime); // convert to date format
+
+        // get raw date elements
+        var year = adjdTime.getFullYear();
+        var month = adjdTime.getMonth() + 1; // add +1 for actual months
+        var date = adjdTime.getDate();
+        var hour = adjdTime.getHours();
+        var min = adjdTime.getMinutes();
+        var sec = adjdTime.getSeconds();
+
+        var minSeq = Math.floor(min / val[1][1]) * val[1][1]; // round down raw min
+
+        // convert to strings & add lead 0s
+        var adjMonth = ("0" + month).slice(-2); // strDate.padStart(2, "0");
+        var adjDate = ("0" + date).slice(-2);
+        var adjHour = ("0" + hour).slice(-2);
+        var adjMin = ("0" + minSeq).slice(-2);
+        var adjSec = ("0" + sec).slice(-2);
+
+        // return array
+        return [
+            ['srcyear', year],
+            ['srcmonth', adjMonth],
+            ['srcdate', adjDate],
+            ['srchour', adjHour],
+            ['srcmin', adjMin],
+            ['srcsec', adjSec],
+        ];
+    }
+
+    // [Row 1] iframe reload loop script
+    // Init fn change src
+    function setiframeSrc() {
+        document.getElementById("iframe_weather_panel1").src =
+            "http://www.weather.go.kr//home/index.tab.now-ten.jsp?gubun=1&amp;myPointCode=&amp;unit=K";
+        document.getElementById("iframe_weather_panel2").src =
+            "http://www.weather.go.kr//home/index.tab.now-ten.jsp?gubun=2&amp;myPointCode=&amp;unit=K";
+        document.getElementById("iframe_weather_panel3").src =
+            "http://www.weather.go.kr//home/index.tab.now-ten.jsp?gubun=3&amp;myPointCode=&amp;unit=K";
+        setiframeTime();
+    }
+    // Current time ribbon inject script
+    function setiframeTime() {
+        ctxtdate = new Date();
+        ctxtdate.setMinutes(0);
+        ctxtdate.setSeconds(0);
+
+        var year = ctxtdate.getFullYear();
+        var month = ctxtdate.getMonth() + 1; // add +1 for actual months
+        var date = ctxtdate.getDate();
+        var hour = ctxtdate.getHours();
+        var min = ctxtdate.getMinutes();
+
+        var adjHour = ("0" + hour).slice(-2);
+        var adjMin = ("0" + min).slice(-2);
+
+        var concatDate = "기준시각: " + year + "년 " + month + "월 " + date + "일 " + adjHour + ":" + adjMin + " (매시 정각)";
+
+        document.getElementById("r1-text1").innerHTML = "<span class='s_time'>" + concatDate + "</span>";
+        document.getElementById("r1-text2").innerHTML = "<span class='s_time'>" + concatDate + "</span>";
+        document.getElementById("r1-text3").innerHTML = "<span class='s_time'>" + concatDate + "</span>";
+    }
+    setiframeTime();
+    // Init fn adj current time
+    function adjcTime() {
+        var current = new Date();
+        current.setTime(current.getTime() - 600000); // add 10 min buffer
+        return current;
+    }
+    // Init fn adj future time
+    function adjfTime() {
+        var future = new Date();
+        future.setTime(future.getTime() + 3600000); // 3,600,000 = 1 hour
+        future.setMinutes(0);
+        future.setSeconds(0);
+        return future;
+    }
+
+    // Calc lead seconds for timeout and interval
+    var csrcTime = adjcTime(); // current time with 10 min buffer
+    var fsrcTime = adjfTime(); // next 0 clock update time
+    var timeout = (fsrcTime - csrcTime); // lead mins to next o clock
+    var intTime = 3600000; // 1 hour loop
+
+    // Start first loop
+    setTimeout(setiframeSrc, timeout);
+
+    // Start after first loop
+    function delayLoop () {
+        setInterval(setiframeSrc, intTime);
+    }
+    setTimeout(delayLoop, timeout);
+
+    // [Row 2] img injection script
+
+    var pfDate;
+    var pfurl;
+    var cvDate;
+    var cvurl;
+    var siDate;
+    var siurl;
+
+    // Init set url functions
+    function setpfUrl() {
+        var pfDate = "" + calcDate(pf)[0][1] + calcDate(pf)[1][1] + calcDate(pf)[2][1] + calcDate(pf)[3][1] + calcDate(
+            pf)[4][1];
+        var pfurl = "http://www.weather.go.kr/repositary/image/rdr/img/qpr_" + pfDate + ".gif";
+        document.getElementById("perc-forecast").src = pfurl;
+    }
+
+    function setcvUrl() {
+        var cvDate = "" + calcDate(cv)[0][1] + calcDate(cv)[1][1] + calcDate(cv)[2][1] + calcDate(cv)[3][1] + calcDate(
+            cv)[4][1];
+        var cvurl = "http://www.weather.go.kr/repositary/image/rdr/img/RDR_SAT_LGT_" + cvDate + ".gif";
+        document.getElementById("comb-vid").src = cvurl;
+    }
+
+    function setsiUrl() {
+        var siDate = "" + calcDate(si)[0][1] + calcDate(si)[1][1] + calcDate(si)[2][1] + calcDate(si)[3][1] +
+            calcDate(si)[4][1];
+        var siurl = "http://www.weather.go.kr/repositary/image/sat/gk2a/EA/gk2a_ami_le2_adps_ea020lc_" +
+            siDate + ".thn.png";
+        document.getElementById("sat-img").src = siurl;
+    }
+
+    // Current time ribbon inject script
+    function setpfimgTime() {
+        var concatDate = "기준시각: " + calcDate(pf)[0][1] + "년 " + calcDate(pf)[1][1] + "월 " + calcDate(pf)[2][1] + "일 " + calcDate(pf)[3][1] + ":" + calcDate(pf)[4][1] + " (30분전 10분간격)";
+
+        document.getElementById("r2-text1").innerHTML = "<span class='s_time'>" + concatDate + "</span>";
+    }
+    setpfimgTime();
+
+    function setcvimgTime() {
+        var concatDate = "기준시각: " + calcDate(cv)[0][1] + "년 " + calcDate(cv)[1][1] + "월 " + calcDate(cv)[2][1] + "일 " + calcDate(cv)[3][1] + ":" + calcDate(cv)[4][1] + " (15분전 5분간격)";
+
+        document.getElementById("r2-text2").innerHTML = "<span class='s_time'>" + concatDate + "</span>";
+    }
+    setcvimgTime();
+
+    function setsiimgTime() {
+        var concatDate = "기준시각: " + calcDate(si2)[0][1] + "년 " + calcDate(si2)[1][1] + "월 " + calcDate(si2)[2][1] +
+            "일 " + calcDate(si2)[3][1] + ":" + calcDate(si2)[4][1] + " (30분전 10분간격)";
+
+        document.getElementById("r2-text3").innerHTML = "<span class='s_time'>" + concatDate + "</span>";
+    }
+    setsiimgTime();
+
+    // Inject maps to row 2 panels
+    setpfUrl();
+    setcvUrl();
+    setsiUrl();
+
+    var pfint = pf[1][1] * 60000;
+    var cvint = cv[1][1] * 60000;
+    var siint = si[1][1] * 60000;
+
+    setInterval(function () {
+        window.cdate = new Date();
+        window.offset = cdate.getTimezoneOffset() * 60000; // client UTC offset in sec
+        window.seoul = cdate.getTime() + offset + 32400000; // seoul UTC in sec
+        calcDate(pf);
+        setpfUrl();
+        setpfimgTime();
+    }, pfint);
+
+    setInterval(function () {
+        window.cdate = new Date();
+        window.offset = cdate.getTimezoneOffset() * 60000; // client UTC offset in sec
+        window.seoul = cdate.getTime() + offset + 32400000; // seoul UTC in sec
+        calcDate(cv);
+        setcvUrl();
+        setcvimgTime();
+    }, cvint);
+
+    setInterval(function () {
+        window.cdate = new Date();
+        window.offset = cdate.getTimezoneOffset() * 60000; // client UTC offset in sec
+        window.seoul = cdate.getTime() + offset + 32400000; // seoul UTC in sec
+        calcDate(si);
+        setsiUrl();
+        setsiimgTime();
+    }, siint);
+
+</script>
