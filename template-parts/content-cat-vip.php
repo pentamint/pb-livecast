@@ -63,86 +63,27 @@
 
 				// Add click event to buttons
 				var vidBtns = document.getElementsByClassName('btn-video');
-				var vidWrapper = document.getElementsByClassName('entry-content');
-				var imgWrapper = document.getElementsByClassName('post-thumbnail');
+				var vidPlayer = document.getElementsByClassName('pbcam');
+				var thumbImg = document.getElementsByClassName('attachment-post-thumbnail');
 
 				for (var i = 0; i < vidBtns.length; i++) {
 					vidBtns[i].addEventListener("click", bindClick(i));
 				}
 
 				function bindClick(i) {
-					return function() {
+					var vidwidth = jQuery('.post-wrapper').width();
+					var vidheight = vidwidth * .8;
+					return function () {
 						if (!vidBtns[i].classList.contains('active')) {
-							vidWrapper[i].style.display = "block";
-							imgWrapper[i].style.display = "none";
+							vidPlayer[i].setAttribute('style', "display: block !important; height: ".concat(vidheight + 'px', ";"));
+							thumbImg[i].setAttribute('style', 'opacity: 0 !important');
 						} else {
-							vidWrapper[i].style.display = "none";
-							imgWrapper[i].style.display = "block";							
+							vidPlayer[i].setAttribute('style', 'display: none');
+							thumbImg[i].setAttribute('style', 'opacity: 1');
 						}
 					};
 				}
 			</script>
-
-			<style>
-				.video-toggle-wrapper {
-					position: absolute;
-					right: 30px;
-					top: 12px;
-					display: flex;
-					align-items: center;
-					font-size: 11px;
-				}
-
-				.video-toggle-wrapper span {
-					margin-right: 5px;
-				}
-
-				.btn-toggle {
-					margin: 0 4rem;
-					padding: 0;
-					position: relative;
-					border: none;
-					height: 1.5rem;
-					width: 3rem;
-					border-radius: 1.5rem;
-					color: #6b7381;
-					background: #bdc1c8;
-				}
-
-				.btn-toggle.btn-xs:active {
-					transition: background-color 0.25s;
-				}
-
-				.btn-toggle.btn-xs.active>.handle {
-					left: 1.125rem;
-					transition: left 0.25s;
-				}
-
-				.btn-toggle.btn-xs {
-					margin: 0 0;
-					padding: 0;
-					position: relative;
-					border: none;
-					height: 1rem;
-					width: 2rem;
-					border-radius: 1rem;
-				}
-
-				.btn-toggle.btn-xs>.handle {
-					position: absolute;
-					top: 0.125rem;
-					left: 0.125rem;
-					width: 0.75rem;
-					height: 0.75rem;
-					border-radius: 0.75rem;
-					background: #fff;
-					transition: left 0.25s;
-				}
-
-				.btn-toggle.active {
-					background-color: #0acf97;
-				}
-			</style>
 		</header><!-- .entry-header -->
 
 		<div class="entry-content">

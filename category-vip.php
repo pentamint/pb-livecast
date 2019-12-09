@@ -19,7 +19,7 @@ defined('ABSPATH') || exit;
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class('archive'); ?>>
+<body <?php body_class('archive');?>>
     <div class="container-fluid">
         <div id="primary" class="content-area">
             <main id="main" class="site-main">
@@ -61,52 +61,53 @@ defined('ABSPATH') || exit;
     <?php wp_footer(); ?>
 </body>
 
-<style>
-    #main>.container-fluid>.row {
-        padding-top: 20px;
-        /* add top padding */
-    }
-
-    body.archive article.post .post-wrapper {
-        background-color: transparent;
-        -webkit-box-shadow: 0px -1px 35px 0px rgba(154, 161, 171, 0.15);
-        box-shadow: 0px -1px 35px 0px rgba(154, 161, 171, 0.15);
-    }
-
-    h2.entry-title {
-        margin-bottom: 0;
-    }
-
-    body.archive article.post .post-wrapper header.entry-header .entry-title a {
-        color: #727cf5;
-    }
-
-    .video-js,
-    .video-js .vjs-tech {
-        /* height: auto !important; */
-    }
-
-    .video-js {
-        width: 100% !important;
-        max-width: 1024px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .vjs-control-bar {
-        display: none !important;
-    }
-</style>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.15.0/videojs-contrib-hls.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.15.0/videojs-contrib-hls.min.js"></script> -->
 <script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
 
 <script>
     (function ($) {
+        // Set default play store
+        $(window).on('load', function () {
+            if (!vidBtns[0].classList.contains('active')) {
+                vidBtns[0].className += " active";
+                vidPlayer[0].style.display = "block";
+                thumbImg[0].style.opacity = "0";
+            }
+        });
+
+        // Init vidheight variable
+        var vidwidth = jQuery('.post-wrapper').width();
+        var vidheight = vidwidth * .8;
+
+        // Set vid height on window load or resize
         $(window).on('load resize', function () {
-            var vidwidth = jQuery('img.attachment-post-thumbnail').width();
-            var vidheight = vidwidth * .8;
             jQuery('.video-js').css('height', vidheight);
+            jQuery('.post-thumbnail').css('height', vidheight);
+        });
+
+        // Init mouseover play effect
+        $(document).ready(function () {
+            $(thumbImg).each(function (i, value) {
+                if (!$(vidBtns[i]).hasClass('active')) {
+                    $(thumbImg[i]).hover(bindHover(i), unbindHover(i))
+                }
+            });
+
+            function bindHover(i) {
+                return function () {
+                    // vidPlayer[i].setAttribute('style', `display: block !important; height: ${vidheight + 'px'};`);
+                    vidPlayer[i].setAttribute('style', "display: block !important; height: ".concat(vidheight + 'px', ";"));
+                    $(vidPlayer[i]).addClass('dshow');
+                    $(thumbImg[i]).addClass('ohide');
+                }
+            }
+
+            function unbindHover(i) {
+                return function () {
+                    $(vidPlayer[i]).removeClass('dshow');
+                    $(thumbImg[i]).removeClass('ohide');
+                }
+            }
         });
     })(jQuery);
 </script>
