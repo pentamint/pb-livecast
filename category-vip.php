@@ -61,7 +61,6 @@ defined('ABSPATH') || exit;
     <?php wp_footer(); ?>
 </body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.15.0/videojs-contrib-hls.min.js"></script>
 <script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
 
 <script>
