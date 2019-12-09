@@ -53,37 +53,6 @@
 				</button>
 			</div>
 
-			<script>
-				// Create video buttons with dynamic ids
-				var vidBtn = [];
-				var vidBtn = document.getElementsByClassName('btn-video');
-				for (i = 0; i < vidBtn.length; i++) {
-					vidBtn[i].id = 'playBtn' + i;
-				}
-
-				// Add click event to buttons
-				var vidBtns = document.getElementsByClassName('btn-video');
-				var vidPlayer = document.getElementsByClassName('pbcam');
-				var thumbImg = document.getElementsByClassName('attachment-post-thumbnail');
-
-				for (var i = 0; i < vidBtns.length; i++) {
-					vidBtns[i].addEventListener("click", bindClick(i));
-				}
-
-				function bindClick(i) {
-					var vidwidth = jQuery('.post-wrapper').width();
-					var vidheight = vidwidth * .8;
-					return function () {
-						if (!vidBtns[i].classList.contains('active')) {
-							vidPlayer[i].setAttribute('style', "display: block !important; height: ".concat(vidheight + 'px', ";"));
-							thumbImg[i].setAttribute('style', 'opacity: 0 !important');
-						} else {
-							vidPlayer[i].setAttribute('style', 'display: none');
-							thumbImg[i].setAttribute('style', 'opacity: 1');
-						}
-					};
-				}
-			</script>
 		</header><!-- .entry-header -->
 
 		<div class="entry-content">
