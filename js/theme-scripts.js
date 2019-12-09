@@ -19,12 +19,12 @@
         var urls = [];
         var urlpaths = [];
         var repUrls = [];
-        
+
         // construct img urls
         function constUrls() {
             for (i = 0; i < alist.length; i++) {
                 urls[i] = alist[i].href;
-                urlpaths[i] = new URL(urls[i]).pathname.slice(13, -1);
+                urlpaths[i] = urls[i].slice(33, -1);
                 repUrls[i] = sltemplateUrl + "mpeg-dash/ss_" + urlpaths[i] + ".jpg?" + new Date().getTime();
             }
         }
@@ -45,6 +45,7 @@
         setInterval(function () {
             repImg();
         }, 300000)
+
     }
 
 })(jQuery);
