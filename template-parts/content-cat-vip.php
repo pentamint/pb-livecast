@@ -75,7 +75,11 @@
 					var vidheight = vidwidth * .8;
 					return function () {
 						if (!vidBtns[i].classList.contains('active')) {
+<<<<<<< HEAD
 							vidPlayer[i].setAttribute('style', "display: block !important; height: ".concat(vidheight + 'px', ";"));
+=======
+							vidPlayer[i].setAttribute('style', `display: block !important; height: ${vidheight + 'px'};`);
+>>>>>>> 96d28b83826981d9db014d16d53a3db875e62782
 							thumbImg[i].setAttribute('style', 'opacity: 0 !important');
 						} else {
 							vidPlayer[i].setAttribute('style', 'display: none');

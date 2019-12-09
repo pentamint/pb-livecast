@@ -46,7 +46,7 @@ defined('ABSPATH') || exit;
 					));
 					// Custom post nav array end
 					?>
-					<div class="btn-wrapper">
+					<div class="back-btn-wrapper">
 						<a href="<?= get_bloginfo("url"); ?>/category/vip/cn/">매장 전체보기</a>
 					</div>
 					<?php
@@ -68,45 +68,6 @@ defined('ABSPATH') || exit;
 
 	<?php wp_footer(); ?>
 </body>
-
-<style>
-	#main>.container-fluid {
-		padding-top: 20px;
-		/* add top padding */
-	}
-
-	.btn-wrapper {
-		width: 100%;
-		text-align: center;
-		margin-top: -37px;
-	}
-
-	.btn-wrapper a {
-		color: #fff;
-		background-color: #727cf5;
-		border-color: #727cf5;
-		-webkit-box-shadow: 0 2px 6px 0 rgba(114, 124, 245, .5);
-		box-shadow: 0 2px 6px 0 rgba(114, 124, 245, .5);
-		border: 1px solid transparent;
-		border-radius: 3px;
-		padding: 10px 12px 12px;
-		font-size: 14px;
-	}
-
-	.btn-wrapper a:hover {
-		background-color: #4e5bf2;
-		border-color: #4250f2;
-	}
-
-	.video-js {
-        width: 100% !important;
-        max-width: 1024px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 15px;
-        margin-bottom: 30px
-    }
-</style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.15.0/videojs-contrib-hls.min.js"></script>
 <script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
