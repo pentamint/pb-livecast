@@ -77,12 +77,15 @@ defined('ABSPATH') || exit;
 
         // Set vid height on window load or resize
         $(window).on('load resize', function () {
-            // Init vidheight variable
-            var vidwidth = jQuery('.post-wrapper').width();
-            var vidheight = vidwidth * .8;
+            chgHeight();
+        });
+
+		function chgHeight() {
+			var vidwidth = jQuery('.post-wrapper').width();
+			var vidheight = vidwidth * .8;
             jQuery('.video-js').css('height', vidheight);
             jQuery('.post-thumbnail').css('height', vidheight);
-        });
+		}
 
         // Create video buttons with dynamic ids
 		var vidBtn = [];
@@ -101,9 +104,9 @@ defined('ABSPATH') || exit;
 		}
 
 		function bindClick(i) {
-			var vidwidth = jQuery('.post-wrapper').width();
-			var vidheight = vidwidth * .8;
 			return function () {
+                var vidwidth = jQuery('.post-wrapper').width();
+			    var vidheight = vidwidth * .8;
 				if (!vidBtns[i].classList.contains('active')) {
 					vidPlayer[i].setAttribute('style', "display: block !important; height: ".concat(vidheight + 'px', ";"));
 					thumbImg[i].setAttribute('style', 'opacity: 0 !important');
