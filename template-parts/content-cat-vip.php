@@ -45,13 +45,13 @@
 			</div>
 			<?php endif; ?>
 			<!-- Bootstrap switch button -->
-			<div class="btn-wrapper video-toggle-wrapper">
+			<!-- <div class="btn-wrapper video-toggle-wrapper">
 				<span>Play</span>
 				<button type="button" class="btn btn-xs btn-toggle btn-video" data-toggle="button" aria-pressed="false"
 					autocomplete="off">
 					<div class="handle"></div>
 				</button>
-			</div>
+			</div> -->
 
 		</header><!-- .entry-header -->
 

@@ -8,7 +8,7 @@
 
 (function ($) {
 
-    if ($('body').hasClass('archive')) {
+    if ($('body').hasClass('archive')) { // Archive Page
 
         // get elements
         var alist = document.querySelectorAll("a.post-thumbnail");
@@ -45,6 +45,25 @@
         setInterval(function () {
             repImg();
         }, 300000)
+
+    }
+
+    if ($('body').hasClass('single')) { // Single Page
+
+        // Set player height
+        jQuery(window).on('load resize', function () {
+            // var vidwidth = jQuery('.video-js').width();
+            // var vidheight = vidwidth * 0.5625;
+            // jQuery('.video-js').css('height', vidheight);
+
+            var innerHeight = window.innerHeight;
+            var topBuffer = 20 + 21 + 15;
+            var bottomBuffer = 66 + 20;
+            var dvidHeight = innerHeight - topBuffer - bottomBuffer;
+
+            jQuery('.video-js').css('height', dvidHeight);
+
+        });
 
     }
 

@@ -69,15 +69,6 @@ defined('ABSPATH') || exit;
 	<?php wp_footer(); ?>
 </body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.15.0/videojs-contrib-hls.min.js"></script>
 <script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
-
-<script>
-    jQuery(window).on('load resize', function () {
-        var vidwidth = jQuery('.video-js').width();
-        var vidheight = vidwidth * 0.5625;
-        jQuery('.video-js').css('height', vidheight);
-    });
-</script>
 
 </html>

@@ -67,13 +67,13 @@ defined('ABSPATH') || exit;
 <script>
     (function ($) {
         // Set default play store
-        $(window).on('load', function () {
-            if (!vidBtns[0].classList.contains('active')) {
-                vidBtns[0].className += " active";
-                vidPlayer[0].style.display = "block";
-                thumbImg[0].style.opacity = "0";
-            }
-        });
+        // $(window).on('load', function () {
+        //     if (!vidBtns[0].classList.contains('active')) {
+        //         vidBtns[0].className += " active";
+        //         vidPlayer[0].style.display = "block";
+        //         thumbImg[0].style.opacity = "0";
+        //     }
+        // });
 
         // Set vid height on window load or resize
         $(window).on('load resize', function () {
@@ -88,41 +88,41 @@ defined('ABSPATH') || exit;
 		}
 
         // Create video buttons with dynamic ids
-		var vidBtn = [];
-		var vidBtn = document.getElementsByClassName('btn-video');
-		for (i = 0; i < vidBtn.length; i++) {
-			vidBtn[i].id = 'playBtn' + i;
-		}
+		// var vidBtn = [];
+		// var vidBtn = document.getElementsByClassName('btn-video');
+		// for (i = 0; i < vidBtn.length; i++) {
+		// 	vidBtn[i].id = 'playBtn' + i;
+		// }
 
 		// Add click event to buttons
-		var vidBtns = document.getElementsByClassName('btn-video');
+		// var vidBtns = document.getElementsByClassName('btn-video');
 		var vidPlayer = document.getElementsByClassName('pbcam');
 		var thumbImg = document.getElementsByClassName('attachment-post-thumbnail');
 
-		for (var i = 0; i < vidBtns.length; i++) {
-			vidBtns[i].addEventListener("click", bindClick(i));
-		}
+		// for (var i = 0; i < vidBtns.length; i++) {
+		// 	vidBtns[i].addEventListener("click", bindClick(i));
+		// }
 
-		function bindClick(i) {
-			return function () {
-                var vidwidth = jQuery('.post-wrapper').width();
-			    var vidheight = vidwidth * .8;
-				if (!vidBtns[i].classList.contains('active')) {
-					vidPlayer[i].setAttribute('style', "display: block !important; height: ".concat(vidheight + 'px', ";"));
-					thumbImg[i].setAttribute('style', 'opacity: 0 !important');
-				} else {
-					vidPlayer[i].setAttribute('style', 'display: none');
-					thumbImg[i].setAttribute('style', 'opacity: 1');
-				}
-			};
-		}
+		// function bindClick(i) {
+		// 	return function () {
+        //         var vidwidth = jQuery('.post-wrapper').width();
+		// 	    var vidheight = vidwidth * .8;
+		// 		if (!vidBtns[i].classList.contains('active')) {
+		// 			vidPlayer[i].setAttribute('style', "display: block !important; height: ".concat(vidheight + 'px', ";"));
+		// 			thumbImg[i].setAttribute('style', 'opacity: 0 !important');
+		// 		} else {
+		// 			vidPlayer[i].setAttribute('style', 'display: none');
+		// 			thumbImg[i].setAttribute('style', 'opacity: 1');
+		// 		}
+		// 	};
+		// }
 
         // Init mouseover play effect
         $(document).ready(function () {
             $(thumbImg).each(function (i, value) {
-                if (!$(vidBtns[i]).hasClass('active')) {
+                // if (!$(vidBtns[i]).hasClass('active')) {
                     $(thumbImg[i]).hover(bindHover(i), unbindHover(i))
-                }
+                // }
             });
 
             function bindHover(i) {
